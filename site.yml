@@ -1,0 +1,13 @@
+################################################################################
+# apache part install and configure apache
+- hosts: all
+  become: true
+  become_user: root
+  vars:
+    php_enablerepo: "remi-php56"
+  roles:
+    - { role: geerlingguy.repo-remi }
+    - { role: geerlingguy.apache }
+    - { role: geerlingguy.php }
+    - { role: erkax.fusiondirectory }
+    - { role: erkax.389DS }
